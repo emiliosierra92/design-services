@@ -1,0 +1,1892 @@
+======================================================================
+READ THIS FIRST — INSTRUCTIONS FOR EMILIO
+======================================================================
+
+This is NOT yet the final “press enter and build everything” prompt.
+
+It is the current master specification for EmilioSierra.com. It contains the
+decisions we have made so far and clearly marks the places where YOU still
+need to provide content, assets, permissions, or final business decisions.
+
+Search this document for:
+
+    >>> EMILIO ACTION REQUIRED
+
+Every occurrence is something you should review, replace, supply, approve,
+or complete before the final Codex build prompt is considered production-ready.
+
+Do NOT delete an EMILIO ACTION REQUIRED marker until the requested item is
+actually resolved.
+
+Text marked:
+
+    [WORKING COPY]
+
+is intentionally provisional and may be polished before launch.
+
+Text marked:
+
+    [CODEX MAY TUNE]
+
+means Codex may adjust the exact implementation in-browser while preserving
+the approved design direction.
+
+Do not invent missing client names, project facts, testimonials, statistics,
+awards, results, permissions, contact details, or business claims.
+
+======================================================================
+1. PROJECT IDENTITY
+======================================================================
+
+Website:
+EmilioSierra.com
+
+Owner:
+Emilio Sierra
+
+Business:
+Independent Creative Technology Studio
+
+Location:
+Miami, Florida
+
+Primary brand voice:
+First person — I / me / my.
+
+Do NOT present EmilioSierra.com as a large agency or imply a team where one
+does not exist.
+
+The website is simultaneously:
+
+- Emilio Sierra's professional identity.
+- The storefront for his creative technology studio.
+- A portfolio of selected work.
+- A home for detailed project case studies.
+- A presentation of services.
+- An introduction to Emilio's philosophy and ambitions.
+- A project-inquiry destination.
+- A scalable foundation for future creative and technology work.
+
+Core services:
+
+01 — Web + App Design & Development
+02 — Graphic Design
+03 — Video Production
+
+Long-term ambition:
+Emilio wants to become an inventor and create useful things, including
+software that can improve people's day-to-day experiences.
+
+The brand must therefore be capable of growing beyond today's three services.
+
+======================================================================
+2. CORE BRAND IDEA
+======================================================================
+
+The website should feel like entering Emilio's digital storefront.
+
+The visitor should immediately understand:
+
+- This is Emilio Sierra.
+- This is his creative technology studio.
+- He is based in Miami.
+- He creates digital and visual experiences.
+- His work can be explored immediately.
+- He can be contacted easily.
+
+The website must feel:
+
+Sophisticated.
+Futuristic.
+Cinematic.
+Comfortable.
+Technological.
+Trendy.
+Human.
+Approachable.
+Premium without being pretentious.
+
+Core UX philosophy:
+
+    FAMILIAR UX.
+    UNFAMILIAR PRESENTATION.
+
+The presentation may be unusual.
+The usability must remain familiar.
+
+The visitor may occasionally wonder:
+"How did the website do that?"
+
+The visitor should never wonder:
+"How do I use this website?"
+
+======================================================================
+3. CREATIVE DIRECTION — “NEO MIAMI”
+======================================================================
+
+Internal creative-direction name:
+
+    NEO MIAMI
+
+This does not necessarily appear in public copy.
+
+Interpretation:
+
+Near-future technology
+× contemporary Miami
+× luxury editorial design
+× premium creative studio
+
+The future should feel close — approximately several years ahead of current
+web design — not distant science fiction.
+
+Miami should be expressed through atmosphere, photography, light, glass,
+architecture, tropical environments, contemporary culture, daylight,
+sunset, blue hour, nightlife, and movement.
+
+AVOID:
+
+- Generic cyberpunk.
+- Vaporwave clichés.
+- Flamingo/palm-tree icon overload.
+- 1980s Miami nostalgia as the main identity.
+- Excessive pink/cyan gradients.
+- Spaceship HUD design.
+- Sci-fi fonts everywhere.
+- Gratuitous holograms.
+- Gaming-site aesthetics.
+- Crypto/AI-startup template aesthetics.
+- Generic freelancer portfolio aesthetics.
+
+======================================================================
+4. COLOR SYSTEM
+======================================================================
+
+Approved direction:
+
+Deep Cobalt × White × Near-Black × Signal Red
+
+Working palette:
+
+Deep Cobalt:
+#1646D8
+
+Cobalt Highlight:
+#3F6FFF
+
+Ink / Near Black:
+#090A0D
+
+Night Surface:
+#111318
+
+White:
+#FFFFFF
+
+Soft White:
+#F4F5F7
+
+Signal Red:
+#E32636
+
+Semantic CSS tokens should sit above raw palette values, e.g.:
+
+--color-brand
+--color-signal
+--color-background
+--color-surface
+--color-text
+--color-text-muted
+--color-border
+--color-focus
+
+Red is a signal color, NOT a large decorative background color by default.
+
+Cobalt represents technology.
+
+White represents clarity/daylight.
+
+Near-black represents depth/night.
+
+[CODEX MAY TUNE]
+Exact color values may receive minor adjustments after real-browser contrast,
+photography, and environmental testing. Do not replace the fundamental
+cobalt/white/near-black/red identity.
+
+======================================================================
+5. TYPOGRAPHY
+======================================================================
+
+Typography concept:
+
+    EDITORIAL LUXURY × DIGITAL PRECISION
+
+Approved primary families:
+
+DISPLAY:
+Cormorant Garamond
+
+BODY / INTERFACE:
+Verdana
+
+MICROTYPE:
+Verdana with controlled tracking, capitalization, and compact sizing.
+
+Cormorant Garamond is for expressive editorial moments such as:
+
+I CREATE
+WHAT'S NEXT.
+
+and major section statements.
+
+Verdana is for:
+
+- Navigation.
+- Body copy.
+- Buttons.
+- Forms.
+- Project descriptions.
+- Service descriptions.
+- Metadata.
+- Technical labels.
+- UI.
+
+Microtype examples:
+
+PROJECT / 001
+MIAMI / FL
+SELECTED WORK / 02
+LIVE BROADCAST / ARCHIVE
+
+Prefer self-hosted display-font assets through the framework's font system
+rather than depending on runtime third-party font requests.
+
+Load only weights actually used.
+
+Working display weights:
+400
+500
+Potential 400 italic only if genuinely useful.
+
+Do not use stereotypical futuristic fonts.
+
+[CODEX MAY TUNE]
+Exact responsive font sizes, tracking, line heights, and weight usage after
+browser testing.
+
+======================================================================
+6. LAYOUT SYSTEM
+======================================================================
+
+Approved direction:
+
+- Luxury editorial composition.
+- Generous negative space.
+- Asymmetry.
+- Precise grid with intentional grid-breaking.
+- Full-bleed visual media where useful.
+- Constrained readable text.
+- Do not trap every section inside the same generic centered container.
+
+Grid:
+
+Desktop: 12 columns
+Tablet: 8 columns
+Mobile: 4 columns
+
+Use CSS Grid and modern layout capabilities.
+
+Normal prose should generally remain around 60–70 characters per line.
+
+Long-form case-study copy should remain intentionally narrow/readable.
+
+Visual media may become significantly wider.
+
+Spacing scale starting point:
+
+2XS  4px
+XS   8px
+SM   12px
+MD   16px
+LG   24px
+XL   32px
+2XL  48px
+3XL  64px
+4XL  96px
+5XL  128px
+6XL  192px
+
+Represent final values as design tokens/rem units as appropriate.
+
+Whitespace is intentional. Do not fill empty space merely because space exists.
+
+Shape language:
+Architectural and restrained.
+
+Working radii:
+small: 4px
+medium: 8px
+large: 16px
+pill: rare / contextual only
+
+Large project photography may use little or no rounding.
+
+Avoid card-everything design.
+
+Avoid excessive shadows.
+
+Depth should primarily come from:
+
+- Layering.
+- Light.
+- Contrast.
+- Photography.
+- Motion.
+
+======================================================================
+7. HOMEPAGE ENVIRONMENTAL STORY
+======================================================================
+
+The homepage subtly progresses through a Miami day.
+
+01 — STOREFRONT / HERO
+DAYLIGHT
+
+02 — SELECTED WORK
+AFTERNOON
+
+03 — WHAT I DO / SERVICES
+GOLDEN HOUR / SUNSET
+
+04 — ABOUT
+BLUE HOUR
+
+05 — CONTACT / FINAL CTA
+NIGHT
+
+Do NOT implement a literal sun moving across the screen.
+
+The visitor should feel the progression before necessarily noticing it.
+
+Communicate the progression through:
+
+- Background surfaces.
+- Typography contrast.
+- Photography.
+- Cobalt intensity.
+- Lighting.
+- Border treatment.
+- Motion.
+- Atmosphere.
+
+The environmental system should be implemented with semantic theme/state
+tokens where practical rather than random per-component color changes.
+
+======================================================================
+8. HOMEPAGE STRUCTURE
+======================================================================
+
+The homepage contains five major narrative sections.
+
+01 — STOREFRONT
+"Meet Emilio."
+
+02 — SELECTED WORK
+"See what I've created."
+
+03 — WHAT I DO
+"See what I can create for you."
+
+04 — ABOUT
+"Understand why I create."
+
+05 — CONTACT / CTA
+"Let's create something together."
+
+Do not add unnecessary sections merely to increase page length.
+
+======================================================================
+9. NAVIGATION — v1.0
+======================================================================
+
+Navigation functions as:
+
+Storefront sign + site compass.
+
+Desktop top state concept:
+
+EMILIO SIERRA
+CREATIVE TECHNOLOGY STUDIO
+
+WORK     SERVICES     ABOUT     START A PROJECT ↗
+
+Emilio's name remains prominent.
+
+No separate HOME link is required on desktop.
+Clicking EMILIO SIERRA returns to the homepage/storefront.
+
+At the absolute top:
+Navigation feels integrated into the hero composition and is mostly
+transparent.
+
+After leaving the hero:
+Use a compact persistent/sticky state.
+
+The Creative Technology Studio descriptor may disappear in the compact state
+to conserve vertical space.
+
+Do NOT hide navigation simply because the visitor scrolls downward.
+
+Navigation adapts from day to night.
+
+DAY:
+Ink text, transparent/light environment, cobalt states.
+
+NIGHT:
+White text, restrained near-black/translucent surface, cobalt active states.
+
+A subtle active-section treatment should identify Work / Services / About.
+Prefer a refined line treatment rather than a loud indicator.
+
+START A PROJECT remains the conversion action and routes to:
+
+/start-a-project
+
+Do not style it as a generic oversized SaaS button.
+Prefer a refined typographic action with subtle motion.
+
+MOBILE:
+
+Top bar concept:
+
+EMILIO SIERRA                              MENU
+
+MENU opens a full-screen navigation experience.
+
+Concept:
+
+EMILIO SIERRA                         CLOSE
+
+01     WORK
+02     SERVICES
+03     ABOUT
+04     START A PROJECT ↗
+
+CREATIVE TECHNOLOGY STUDIO
+MIAMI / FL
+
+Large section labels may use Cormorant Garamond.
+Numbers/metadata use Verdana.
+
+Implement correct:
+
+- Focus trapping/management where appropriate.
+- Escape to close.
+- Scroll containment.
+- Focus restoration.
+- Touch target sizing.
+- Keyboard behavior.
+- Accessible expanded state.
+
+CASE STUDIES:
+Navigation may simplify to project context plus START A PROJECT.
+Provide clear ALL WORK and NEXT PROJECT pathways.
+
+PROJECT INQUIRY:
+Use a quieter/focused navigation state so the form remains the focus.
+
+[CODEX MAY TUNE]
+Exact spacing, backdrop blur, opacity, transition timing, and breakpoint
+behavior after in-browser evaluation.
+
+======================================================================
+10. HERO / DIGITAL STOREFRONT
+======================================================================
+
+Hero responsibilities:
+
+1. Establish Emilio Sierra.
+2. Establish Creative Technology Studio.
+3. Communicate a larger creative idea.
+4. Show Emilio through photography.
+5. Provide an immediate path into his work.
+6. Keep project inquiry accessible through navigation.
+
+Working hero headline:
+
+[WORKING COPY]
+
+    I CREATE
+    WHAT'S NEXT.
+
+Primary hero action:
+
+    EXPLORE MY WORK →
+
+START A PROJECT remains available in persistent navigation rather than
+requiring a second giant hero button.
+
+Working hero introduction:
+
+[WORKING COPY]
+
+"I design and build digital experiences across web, graphics and video
+from Miami."
+
+Service directory near the lower hero region:
+
+01 / WEB + APP DESIGN & DEVELOPMENT
+02 / GRAPHIC DESIGN
+03 / VIDEO PRODUCTION
+
+Include subtle:
+
+MIAMI / FL
+
+DESKTOP:
+Use an asymmetrical editorial composition.
+Photography should occupy substantial visual space, likely toward the right
+side / right edge.
+Headline and image may interact compositionally.
+
+MOBILE:
+Do NOT simply shrink desktop.
+Suggested hierarchy:
+
+Identity
+Headline
+Introduction
+Explore Work
+Large photograph
+Three-discipline directory
+
+HERO IMAGE:
+
+A photograph of Emilio using a smartphone in a bright, modern, tropical
+environment has been selected conceptually.
+
+It should be a major architectural element, not a tiny circular avatar.
+
+Preserve the original.
+Use non-destructive responsive crops.
+Provide appropriate alt text.
+Test crops on real mobile and desktop dimensions.
+
+>>> EMILIO ACTION REQUIRED — HERO IMAGE
+Provide the final high-resolution source image intended for production.
+If multiple edits/exports exist, identify the approved master image.
+
+>>> EMILIO ACTION REQUIRED — HERO HEADLINE APPROVAL
+Approve "I CREATE WHAT'S NEXT." or replace it with final copy.
+
+>>> EMILIO ACTION REQUIRED — HERO INTRO APPROVAL
+Approve/rewrite the working introduction:
+"I design and build digital experiences across web, graphics and video
+from Miami."
+
+======================================================================
+11. SELECTED WORK
+======================================================================
+
+Section title:
+
+SELECTED WORK
+
+Do not use a generic three-card portfolio grid as the primary presentation.
+
+Projects should feel cinematic, editorial, and substantial.
+
+The initial Selected Work experience contains at least two genuine stories:
+
+PROJECT 01:
+Vintage Theatrical Prop Packaging / Graphic Recreation
+
+PROJECT 02:
+South Florida Live Sports Broadcasting
+
+The projects should transition from one into the next and then transition
+naturally into Services.
+
+The transition should communicate continuity rather than two unrelated cards.
+
+PROJECT 01 visual character:
+Precision / static / design / physical fabrication.
+
+PROJECT 02 visual character:
+Movement / screens / live production / audience.
+
+Do not invent additional fake client projects merely to fill space.
+
+Concept/self-initiated projects may be added later only when clearly labeled.
+
+======================================================================
+12. CASE STUDY 01 — THEATRICAL PROP PACKAGING
+======================================================================
+
+Discipline:
+Graphic Design
+
+Application:
+Theatrical production / prop production.
+
+Software:
+Adobe Photoshop.
+
+Emilio's role:
+Graphic recreation / production artwork.
+
+Known project story:
+
+Emilio recreated a vintage cigarette-box graphic for a designer.
+The designer used the recreated artwork to produce a physical vintage
+cigarette-box prop for a theater production.
+
+The work was completed in Adobe Photoshop.
+
+The process included use of rulers, measurement/sizing expertise, copying/
+reconstruction tools, and layout techniques to create the cigarette-box
+components.
+
+The artwork was not merely a front-facing graphic.
+It was arranged as package artwork intended to wrap around the dimensions of
+a cigarette-box form when fabricated.
+
+Core narrative:
+
+REFERENCE
+↓
+RECREATION
+↓
+PRODUCTION ARTWORK
+↓
+PHYSICAL FABRICATION
+↓
+FINISHED PROP
+
+Potential case-study structure:
+
+01 / BRIEF
+02 / CHALLENGE
+03 / PROCESS
+04 / DESIGN
+05 / FROM DIGITAL TO PHYSICAL
+06 / RESULT
+
+A strong visual opportunity is to show the flat package artwork and then
+reveal the final physical object.
+
+Potential subtle diagram labels:
+
+FRONT
+BACK
+SIDE
+TOP
+FOLD / WRAP
+
+Do not claim Emilio fabricated the prop if he did not.
+Credit the designer/fabricator accurately.
+
+>>> EMILIO ACTION REQUIRED — PROJECT NAME
+Provide the public-facing project title if a more specific title is desired.
+
+>>> EMILIO ACTION REQUIRED — COLLABORATOR
+Provide the designer/prop professional's name and how they should be credited,
+ONLY if permission exists to publish it.
+
+>>> EMILIO ACTION REQUIRED — PRODUCTION
+Provide the theater production/show name, company, date/year, and context if
+known and approved for publication.
+
+>>> EMILIO ACTION REQUIRED — SOURCE ARTWORK
+Provide the recreated Photoshop artwork / safe web export(s).
+
+>>> EMILIO ACTION REQUIRED — REFERENCE RIGHTS
+Identify whether the original vintage reference may legally/appropriately be
+shown on the portfolio site. If uncertain, do not assume permission.
+
+>>> EMILIO ACTION REQUIRED — FINISHED PROP MEDIA
+Provide photographs of the completed physical prop if available and approved
+for publication.
+
+>>> EMILIO ACTION REQUIRED — DIMENSIONS
+Provide exact package dimensions if known and useful. If not known, omit
+rather than invent.
+
+>>> EMILIO ACTION REQUIRED — PERMISSIONS
+Confirm permission/rights to display collaborator names, production photos,
+behind-the-scenes assets, and any protected production materials.
+
+======================================================================
+13. CASE STUDY 02 — SOUTH FLORIDA LIVE SPORTS BROADCASTING
+======================================================================
+
+Field:
+Live Sports Broadcasting
+
+Working role:
+Producer / Technical Director
+
+Known organizations:
+South Florida Baseball Network
+High School Baseball Network
+
+Geographic context:
+Miami-Dade and Broward County, Florida.
+
+Production context:
+Live high-school baseball broadcasts involving public and private schools.
+
+Origin story:
+
+Emilio encountered the opportunity during an earlier stage of his career
+while he was learning web development and graphic design. Through the person
+behind South Florida Baseball Network and connections to High School Baseball
+Network, he joined a small/ragtag broadcasting crew.
+
+Public-facing copy should preserve the authenticity without unnecessarily
+framing Emilio as professionally unsuccessful.
+
+Known responsibilities:
+
+BEFORE LIVE:
+- Set up the production site.
+- Help prepare equipment.
+- Verify that systems were operational and ready for live production.
+
+DURING LIVE:
+- Operate as technical director.
+- Switch between camera feeds.
+- Monitor/ensure audio functionality.
+- Monitor the YouTube live feed.
+- Follow channel activity.
+- Communicate/interact with viewers/guests through the live channel.
+
+AFTER LIVE:
+- Participate in site/equipment breakdown.
+
+Production lifecycle:
+
+SETUP
+→ SYSTEM CHECK
+→ GO LIVE
+→ TECHNICAL DIRECTION
+→ AUDIO MONITORING
+→ AUDIENCE INTERACTION
+→ BREAKDOWN
+
+Potential visual sections:
+
+LIVE / 01
+BEHIND THE BROADCAST
+IN THE CHAIR
+THE AUDIENCE
+ON THE ROAD
+THE FINAL INNING
+
+The case study may explain that the production chapter ended around the
+COVID period and the team later disbanded.
+
+Do not make COVID the emotional climax.
+
+The central professional takeaway is that Emilio learned to create and
+operate experiences that had to work correctly in real time.
+
+>>> EMILIO ACTION REQUIRED — ORGANIZATION NAMES
+Confirm the exact official names/spelling of South Florida Baseball Network
+and High School Baseball Network and whether both may be publicly referenced.
+
+>>> EMILIO ACTION REQUIRED — ROLE/TITLE
+Confirm the most accurate public-facing title(s), e.g.
+Producer / Technical Director.
+
+>>> EMILIO ACTION REQUIRED — DATES
+Provide approximate years/dates for this work.
+
+>>> EMILIO ACTION REQUIRED — BROADCAST MEDIA
+Locate and provide surviving broadcast recordings, YouTube links, clips,
+screenshots, graphics, production photographs, promotional material, or
+behind-the-scenes media.
+
+>>> EMILIO ACTION REQUIRED — SCHOOLS/GAMES
+Provide examples of schools/games that may be named publicly, if desired.
+
+>>> EMILIO ACTION REQUIRED — EQUIPMENT/WORKFLOW
+If useful, provide known production equipment/software/platform details.
+Do not invent forgotten equipment merely to make the case study sound
+technical.
+
+>>> EMILIO ACTION REQUIRED — RIGHTS/PERMISSIONS
+Determine which broadcast footage, logos, school identities, YouTube
+screenshots, and historical media may be reproduced on EmilioSierra.com.
+
+======================================================================
+14. SERVICES — WHAT I DO
+======================================================================
+
+Navigation/system label:
+
+SERVICES
+
+Human-facing section:
+
+WHAT I DO
+
+Services should feel like three substantial studio disciplines rather than
+three generic icon cards.
+
+01 / DIGITAL
+WEB + APP DESIGN & DEVELOPMENT
+
+Working positioning:
+"I design and build websites, applications and digital tools around the
+people who use them."
+
+Potential capability labels:
+WEBSITES / WEB APPS / UI + UX / DIGITAL TOOLS
+
+02 / VISUAL
+GRAPHIC DESIGN
+
+Working positioning:
+"Visual design created for digital experiences, communication and physical
+production."
+
+Potential capability labels:
+DIGITAL GRAPHICS / PRODUCTION ARTWORK / VISUAL DESIGN
+
+03 / MOTION
+VIDEO PRODUCTION
+
+Working positioning:
+"Video capture, live streaming and production backed by hands-on live
+broadcasting experience."
+
+Potential capability labels:
+VIDEO / LIVE STREAMING / PRODUCTION / EDITING
+
+The three services may transition on a shared visual stage rather than appear
+as disconnected cards.
+
+The environment moves toward sunset throughout this section.
+
+>>> EMILIO ACTION REQUIRED — SERVICE SCOPE
+Review each service and remove anything you do NOT actually want to sell.
+
+>>> EMILIO ACTION REQUIRED — SERVICE COPY
+Approve/rewrite the three working service descriptions.
+
+>>> EMILIO ACTION REQUIRED — SERVICE CAPABILITIES
+Confirm the specific deliverables you are comfortable advertising under each
+service at launch.
+
+======================================================================
+15. ABOUT
+======================================================================
+
+Purpose:
+Explain why Emilio creates.
+
+Known personal foundation:
+
+Emilio remembers being creative from a young age and capable with technology.
+
+Creativity + technology + curiosity encouraged him to read, learn, explore,
+and continue asking questions.
+
+At age 33, he has recognized that he can create software that can help people
+in everyday settings, and that is an important direction he wants to pursue.
+
+Long-term ambition:
+Become an inventor.
+
+Working About headline:
+
+[WORKING COPY]
+
+    CURIOSITY
+    MADE ME
+    A CREATOR.
+
+Working narrative:
+
+[WORKING COPY]
+
+"I've always been creative, and technology has always come naturally to me.
+Curiosity connected the two.
+
+Growing up, I found myself constantly reading, learning and exploring
+whatever captured my attention. The more I learned, the more questions I
+had—and eventually, those questions became things I wanted to create.
+
+Today, at 33, I'm beginning to understand where that curiosity can take me.
+I can design an interface, develop a piece of software, create a visual, or
+produce something people can experience.
+
+What excites me most is the possibility of building technology that can make
+someone's everyday life a little better.
+
+Ultimately, I want to invent things."
+
+Potential metadata:
+
+CREATOR
+DESIGNER
+DEVELOPER
+PRODUCER
+MIAMI / FL
+ASPIRING INVENTOR
+
+Visual character:
+Blue hour.
+Quieter.
+More negative space.
+Less reactive motion.
+Deep cobalt and near-black.
+
+A second portrait of Emilio is desired rather than simply repeating the hero
+photograph.
+
+>>> EMILIO ACTION REQUIRED — ABOUT COPY
+Read the working narrative carefully. Rewrite anything that does not sound
+like you. This is personal brand copy and should feel authentic.
+
+>>> EMILIO ACTION REQUIRED — ABOUT HEADLINE
+Approve "CURIOSITY MADE ME A CREATOR." or replace it.
+
+>>> EMILIO ACTION REQUIRED — ABOUT PORTRAIT
+Provide/select a second photograph for the About section eventually.
+Prefer something personal/direct rather than a conventional corporate
+headshot.
+
+======================================================================
+16. CONTACT / FINAL HOMEPAGE CTA
+======================================================================
+
+Working headline:
+
+[WORKING COPY]
+
+    LET'S MAKE
+    SOMETHING.
+
+Working support:
+
+"Have an idea, a problem to solve, or something you want to create?
+Tell me about it."
+
+The final homepage environment is Miami at night.
+
+Use near-black, white, deep cobalt illumination, and very restrained signal
+red.
+
+The final area should return strongly to the brand:
+
+EMILIO SIERRA
+Creative Technology Studio · Miami, Florida
+
+Potential final interaction:
+
+BACK TO DAYLIGHT ↑
+
+This returns to the beginning/storefront and conceptually reverses the
+night-to-day journey.
+
+Respect reduced-motion preferences.
+
+>>> EMILIO ACTION REQUIRED — CONTACT HEADLINE
+Approve/rewrite "LET'S MAKE SOMETHING."
+
+>>> EMILIO ACTION REQUIRED — CONTACT SUPPORT COPY
+Approve/rewrite the supporting sentence.
+
+======================================================================
+17. START A PROJECT PAGE
+======================================================================
+
+Route:
+
+/start-a-project
+
+Business workflow:
+
+Visitor
+→ fills out project form
+→ form sends an email to Emilio
+→ Emilio reads the inquiry in his normal email inbox
+→ Emilio personally replies when he next checks email.
+
+No client portal is required for launch.
+No booking system is required for launch.
+No chatbot is required.
+
+Working opening:
+
+PROJECT INQUIRY / 001
+
+WHAT ARE WE
+MAKING?
+
+Working support:
+
+"Tell me a little about your project. I'll review your message and get back
+to you personally."
+
+Recommended fields:
+
+YOUR NAME *
+EMAIL ADDRESS *
+COMPANY / ORGANIZATION — optional
+
+WHAT ARE YOU INTERESTED IN? *
+Allow multiple selections:
+
+- Web + App Design & Development
+- Graphic Design
+- Video Production
+- Something Else
+
+TELL ME ABOUT YOUR PROJECT *
+Large textarea.
+
+Prompt:
+"What are you trying to create, improve, or solve?"
+
+WHEN ARE YOU HOPING TO GET STARTED?
+Optional.
+
+Do NOT require budget at launch.
+
+Submit action:
+
+SEND PROJECT INQUIRY →
+
+Success state:
+
+MESSAGE RECEIVED.
+
+"Thanks for reaching out. Your project inquiry has been sent to me. I'll
+review it and reply by email."
+
+RETURN TO THE STUDIO →
+
+Do not promise a specific response time unless Emilio intentionally commits
+to one.
+
+Failure state must NEVER falsely claim the inquiry was sent.
+
+Example:
+
+"I COULDN'T SEND YOUR MESSAGE.
+Nothing has been confirmed as sent. Please try again or contact me directly
+by email."
+
+FORM TECHNICAL REQUIREMENTS:
+
+- Server-side submission.
+- Server-side validation.
+- Client-side validation for UX.
+- Sanitization/normalization as appropriate.
+- Spam protection.
+- Rate limiting where appropriate.
+- Duplicate-submit protection.
+- Loading state.
+- Success/error states.
+- Proper labels.
+- Helpful inline errors.
+- Keyboard accessibility.
+- Focus management.
+- Accessible status messaging.
+- No mail-sending credentials exposed to the browser.
+- Do not send message contents to analytics.
+- Avoid storing inquiry content in a database unless a real business need is
+  later established.
+- Prefer low-friction bot protection before intrusive CAPTCHA.
+- Configure Reply-To to the visitor's submitted email when supported.
+
+Email notification should clearly include:
+
+Name
+Email
+Organization
+Selected services
+Timeline
+Project message
+
+Suggested email subject:
+
+New Project Inquiry — EmilioSierra.com
+
+>>> EMILIO ACTION REQUIRED — DESTINATION EMAIL
+Provide the private/business email address that should receive inquiries.
+DO NOT hard-code it into public client-side code. Configure it through secure
+environment settings.
+
+>>> EMILIO ACTION REQUIRED — EMAIL PROVIDER
+Choose the transactional email delivery provider before production form
+implementation. Do not let Codex invent an account or credentials.
+
+>>> EMILIO ACTION REQUIRED — PUBLIC EMAIL
+Decide whether a direct email address should also be displayed publicly as an
+alternative contact method.
+
+======================================================================
+18. MOTION SYSTEM
+======================================================================
+
+Approved direction:
+
+    CINEMATIC EDITORIAL × REACTIVE TECHNOLOGY
+
+Core rule:
+
+    LARGE THINGS MOVE SLOWLY.
+    SMALL THINGS RESPOND QUICKLY.
+
+Motion should communicate hierarchy and continuity.
+
+Do not animate simply to prove the site can animate.
+
+Suggested timing families:
+
+FAST       ~160ms
+NORMAL     ~260ms
+SLOW       ~500ms
+CINEMATIC  ~800ms
+
+Use a small consistent easing family.
+
+Motion categories:
+
+MICRO:
+Buttons, links, controls.
+
+INTERFACE:
+Navigation states, fields, small reveals.
+
+EDITORIAL:
+Typography and image reveals.
+
+ENVIRONMENTAL:
+Day/night and major project transitions.
+
+Potential effects:
+
+- Elegant clipped typography reveals.
+- Subtle hero image depth/crop movement.
+- Environmental color/surface progression.
+- Selected Work project-to-project transitions.
+- Service-stage transformations.
+- Very restrained pointer-reactive effects on capable desktop devices.
+- Small arrow/line motion on CTAs.
+- Environment-aware navigation.
+
+AVOID:
+
+- Splash screens.
+- Fake loading percentages.
+- "Enter Experience" gates.
+- Scroll hijacking.
+- Constant movement.
+- Aggressive parallax.
+- Autoplay audio.
+- Giant custom cursors.
+- Motion required to understand content.
+- Excessive animation dependencies.
+
+Prefer CSS-native animation/scroll capabilities for straightforward effects.
+
+Add JavaScript animation libraries only where a meaningful interaction cannot
+reasonably be implemented performantly and accessibly with modern CSS.
+
+REDUCED MOTION:
+
+The reduced-motion version must remain premium and complete.
+
+Remove/reduce:
+- Parallax.
+- Large animated transformations.
+- aggressive scroll-linked motion.
+- elaborate travel effects.
+
+Retain:
+- Typography.
+- Photography.
+- composition.
+- color/environment.
+- usability.
+- hierarchy.
+
+[CODEX MAY TUNE]
+Exact motion timings and easing after real-browser testing while preserving
+the four timing categories and approved restrained character.
+
+======================================================================
+19. TECHNICAL ARCHITECTURE
+======================================================================
+
+Recommended foundation:
+
+- Current stable Next.js.
+- App Router.
+- TypeScript in strict mode.
+- React.
+- Server-first component strategy.
+- Client Components only where interaction requires them.
+- Modern CSS.
+- Scoped styling such as CSS Modules or an equally maintainable native-CSS
+  strategy.
+- CSS custom properties/design tokens.
+- Vercel deployment.
+
+Do not make the entire application a Client Component merely because some
+sections animate.
+
+Use modern CSS where appropriate:
+
+- Grid.
+- Subgrid where useful and supported.
+- clamp().
+- Container queries.
+- Logical properties.
+- aspect-ratio.
+- modern selectors.
+- masks where useful.
+- scroll-driven animations where appropriate.
+- progressive enhancement.
+
+Do not introduce Tailwind or a large UI framework merely because a default
+starter offers it. The desired site is a custom editorial design system.
+
+Do not over-abstract React components.
+
+Good conceptual reusable components include:
+
+Navigation
+Hero
+SectionHeader
+ProjectShowcase
+ServicePanel
+AboutSection
+ContactCTA
+ProjectInquiryForm
+Footer
+Button
+TextLink
+Field
+MediaFrame
+Metadata
+
+Do not create meaningless abstractions such as every wrapper becoming its own
+component.
+
+CONTENT:
+
+No CMS required for initial launch.
+
+Use structured local content/data for the small initial project set.
+
+Architect content so migration to a CMS later is reasonable if the portfolio
+grows substantially.
+
+ROUTING:
+
+/
+    Homepage/studio
+
+/start-a-project
+    Project inquiry
+
+/work/[project]
+    Individual case studies
+
+Initial conceptual case-study slugs:
+
+/work/theatrical-prop-packaging
+/work/live-sports-broadcasting
+
+Final slugs may be adjusted for accuracy/SEO before launch.
+
+======================================================================
+20. MEDIA
+======================================================================
+
+IMAGES:
+
+- Responsive image delivery.
+- Correct intrinsic dimensions/aspect ratios.
+- Appropriate sizes.
+- Lazy-load below-the-fold media.
+- Prioritize only genuinely critical media.
+- Useful alt text based on communicative purpose.
+- Preserve visual quality of graphic-design work.
+- Test responsive crops.
+
+VIDEO:
+
+Do not automatically load several enormous videos on the homepage.
+
+Homepage:
+Prefer poster frames/lightweight previews where appropriate.
+
+Case study:
+Load substantive video intentionally.
+
+Decorative autoplay footage, if used:
+- muted.
+- not required for comprehension.
+- reduced-motion aware.
+- appropriately controllable where necessary.
+
+Content video:
+Provide accessible controls and captions/transcript considerations where
+appropriate.
+
+======================================================================
+21. ACCESSIBILITY
+======================================================================
+
+Target:
+WCAG 2.2 AA.
+
+Accessibility is part of the design, not a final plugin/checklist.
+
+Requirements include:
+
+- Semantic HTML.
+- Correct heading hierarchy.
+- Header/nav/main/section/article/footer landmarks.
+- Real links for navigation.
+- Real buttons for actions.
+- Real form controls.
+- Keyboard operation.
+- Visible branded focus states.
+- Skip-to-main-content link.
+- Color contrast.
+- Meaningful alternative text.
+- Form labels.
+- Error identification and messaging.
+- Accessible status updates.
+- Reduced-motion support.
+- Touch target sizing.
+- Zoom/reflow compatibility.
+- No hover-only information.
+- Appropriate ARIA only where native semantics are insufficient.
+- Accessible mobile navigation.
+- Media accessibility.
+
+Do not remove focus outlines simply for aesthetics.
+
+Do not use color alone to communicate meaning.
+
+======================================================================
+22. PERFORMANCE
+======================================================================
+
+The site should feel advanced because it performs well.
+
+Target strong Core Web Vitals.
+
+Working targets on representative production pages/devices:
+
+LCP ≤ 2.5s
+INP ≤ 200ms
+CLS ≤ 0.1
+
+Prioritize:
+
+- Responsive media.
+- Efficient image formats.
+- Font discipline.
+- Minimal unnecessary JavaScript.
+- Server rendering/static generation where appropriate.
+- Code splitting.
+- Deferred noncritical work.
+- Efficient animations.
+- Avoiding unnecessary third-party scripts.
+- Avoiding enormous background videos.
+
+Performance outranks a decorative animation.
+
+======================================================================
+23. SEO
+======================================================================
+
+Build SEO structurally.
+
+Include as appropriate:
+
+- Unique page titles.
+- Meta descriptions.
+- Semantic headings.
+- Clean URLs.
+- Canonical URLs.
+- Open Graph metadata.
+- Social sharing imagery.
+- Legitimate structured data.
+- XML sitemap.
+- Robots configuration.
+- Internal linking.
+- Image optimization.
+- Descriptive alt text.
+- Strong case-study content.
+- Performance.
+
+Do not keyword-stuff Miami or service names.
+
+======================================================================
+24. PRIVACY & SECURITY
+======================================================================
+
+Final requirements depend on actual integrations.
+
+Pay attention to:
+
+- Contact-form data.
+- Analytics.
+- Cookies.
+- Third-party embeds.
+- Video providers.
+- Spam prevention.
+- Data retention.
+- Server-side form validation.
+- Rate limiting.
+- HTTPS.
+- Security headers.
+- Dependency hygiene.
+- Secrets/environment variables.
+
+Do not deploy an intrusive cookie banner merely because websites sometimes
+have cookie banners. Determine whether the actual technology/legal context
+requires consent mechanisms.
+
+Do not generate fake privacy/legal policies that do not reflect the actual
+site.
+
+======================================================================
+25. ANALYTICS
+======================================================================
+
+Use minimal/privacy-conscious analytics.
+
+Potential measurements:
+
+- Visitors.
+- Entry pages.
+- Project views.
+- CTA interactions.
+- Successful inquiry submissions.
+- Basic acquisition/referrer information where appropriate.
+
+Do NOT send contact-form message contents into analytics.
+
+Do NOT add invasive session replay by default.
+
+>>> EMILIO ACTION REQUIRED — ANALYTICS
+Decide whether analytics are wanted at launch and, if so, which approved
+provider/account should be used.
+
+======================================================================
+26. RESPONSIVE DESIGN
+======================================================================
+
+Design intentionally for:
+
+- Small phone.
+- Large phone.
+- Tablet.
+- Laptop.
+- Desktop.
+- Wide desktop.
+- Touch.
+- Mouse.
+- Keyboard.
+
+Working viewport guidance:
+
+Mobile: under ~640px
+Large mobile/small tablet: ~640px+
+Tablet: ~768px+
+Laptop: ~1024px+
+Desktop: ~1280px+
+Wide: ~1600px+
+
+These are starting points, not device-brand commandments.
+
+Use breakpoints when composition actually needs to change.
+
+Use container queries where component-level responsiveness is more
+appropriate.
+
+Do not make mobile a miniature desktop.
+
+======================================================================
+27. CONTENT INTEGRITY
+======================================================================
+
+NEVER fabricate:
+
+- Clients.
+- Testimonials.
+- Awards.
+- Statistics.
+- Employment.
+- Results.
+- Case-study metrics.
+- Partnerships.
+- Certifications.
+- Permissions.
+- Project dates.
+- Credits.
+
+If something is conceptual:
+Label it conceptual.
+
+If collaborative:
+Credit collaborators accurately.
+
+If information is unknown:
+Use an explicit development placeholder or omit it.
+
+======================================================================
+28. DESIGN RESTRAINTS
+======================================================================
+
+Avoid making the website resemble:
+
+- Generic Webflow/portfolio template.
+- Generic SaaS landing page.
+- Gaming site.
+- Cyberpunk HUD.
+- Cryptocurrency company.
+- Generic AI startup.
+- Traditional ad agency.
+- Résumé site.
+
+Avoid excessive:
+
+- Glassmorphism.
+- Gradients.
+- Glowing borders.
+- Pills.
+- Floating cards.
+- Marquees.
+- Custom cursors.
+- 3D objects.
+- Scroll tricks.
+- Shadows.
+
+These are tools, not the identity.
+
+======================================================================
+29. FOOTER
+======================================================================
+
+Return strongly to:
+
+EMILIO SIERRA
+Creative Technology Studio · Miami, Florida
+
+Include relevant navigation.
+
+Potential service references:
+
+Web + App Design & Development
+Graphic Design
+Video Production
+
+Include social/professional links only after Emilio approves which accounts
+belong on the professional site.
+
+Include privacy/legal links based on the actual implementation.
+
+>>> EMILIO ACTION REQUIRED — SOCIAL LINKS
+Provide the professional/social profiles that should appear, if any.
+
+>>> EMILIO ACTION REQUIRED — LEGAL/BUSINESS INFO
+Confirm any business/legal name, privacy contact information, or other
+details required for final policies/disclosures.
+
+======================================================================
+30. FINAL COPY ITEMS STILL REQUIRING APPROVAL
+======================================================================
+
+>>> EMILIO ACTION REQUIRED — COPY POLISH
+
+Review/finalize these high-visibility lines before production copy is locked:
+
+A. Brand descriptor:
+    Creative Technology Studio
+
+B. Hero:
+    I CREATE WHAT'S NEXT.
+
+C. Hero intro:
+    I design and build digital experiences across web, graphics and video
+    from Miami.
+
+D. Work introduction:
+    NOT YET FINALIZED.
+    Write/approve a short introduction to Selected Work.
+
+E. About headline:
+    CURIOSITY MADE ME A CREATOR.
+
+F. About narrative:
+    See Section 15.
+
+G. Contact headline:
+    LET'S MAKE SOMETHING.
+
+H. Contact support:
+    Have an idea, a problem to solve, or something you want to create?
+    Tell me about it.
+
+I. Start-a-project opening:
+    WHAT ARE WE MAKING?
+
+J. Start-a-project support:
+    Tell me a little about your project. I'll review your message and get
+    back to you personally.
+
+======================================================================
+31. EMILIO MASTER CONTENT CHECKLIST
+======================================================================
+
+Before final production/handoff, Emilio should provide or decide:
+
+[ ] Final hero image.
+[ ] Hero headline approval.
+[ ] Hero introduction approval.
+
+PROP CASE STUDY:
+[ ] Public project title.
+[ ] Collaborator credit/name if publishable.
+[ ] Theater production context if publishable.
+[ ] Photoshop/recreated artwork exports.
+[ ] Original reference rights/status.
+[ ] Finished prop photographs.
+[ ] Dimensions if known/relevant.
+[ ] Permissions/credits.
+
+BROADCAST CASE STUDY:
+[ ] Exact network/organization names.
+[ ] Accurate public role/title.
+[ ] Approximate dates.
+[ ] Broadcast recordings/links/clips.
+[ ] Screenshots.
+[ ] Production/setup photographs.
+[ ] Schools/games that may be identified.
+[ ] Equipment/software details if remembered and useful.
+[ ] Media/branding permissions.
+
+SERVICES:
+[ ] Confirm exact scope of Web + App Design & Development.
+[ ] Confirm exact scope of Graphic Design.
+[ ] Confirm exact scope of Video Production.
+[ ] Approve service descriptions.
+[ ] Approve service capability labels.
+
+ABOUT:
+[ ] Approve/rewrite About narrative.
+[ ] Approve About headline.
+[ ] Select second portrait.
+
+CONTACT:
+[ ] Approve Contact headline.
+[ ] Approve Contact support copy.
+[ ] Provide inquiry destination email privately.
+[ ] Choose email-delivery provider.
+[ ] Decide whether direct email is publicly displayed.
+
+BUSINESS/SITE:
+[ ] Decide analytics provider or no analytics.
+[ ] Provide approved social/professional links.
+[ ] Confirm legal/business/privacy details as required.
+[ ] Provide favicon/logo/monogram direction if one is desired.
+[ ] Provide final Open Graph/social-share image or approve creation of one.
+
+======================================================================
+32. CODEX MAY TUNE IN-BROWSER
+======================================================================
+
+Codex may make measured implementation adjustments to:
+
+- Exact fluid font-size clamp values.
+- Line heights.
+- Tracking.
+- Grid gaps.
+- Outer margins.
+- Hero image crop.
+- Exact content max widths.
+- Section vertical spacing.
+- Navigation blur/opacity.
+- Minor breakpoint placement.
+- Exact motion durations within the approved timing families.
+- Easing curves.
+- Subtle border opacity.
+- Minor accessible color adjustments.
+- Progressive-enhancement fallbacks.
+
+Codex may NOT independently change:
+
+- The three core services.
+- First-person studio positioning.
+- Neo Miami direction.
+- Cobalt/white/near-black/red identity.
+- Cormorant Garamond + Verdana typography concept.
+- Day-to-night homepage narrative.
+- Five-section homepage architecture.
+- Selected Work case-study facts.
+- Persistent brand-forward navigation philosophy.
+- Cinematic Editorial × Reactive Technology motion philosophy.
+- Accessibility requirements.
+- Contact workflow.
+- Content-integrity rules.
+
+If a hard requirement creates a genuine accessibility, performance, security,
+or browser-support problem, Codex should preserve the intent and implement
+the closest robust solution rather than silently deleting the requirement.
+
+======================================================================
+33. ENGINEERING QUALITY
+======================================================================
+
+The repository should remain understandable to another competent developer.
+
+Require:
+
+- Clear project structure.
+- Strict TypeScript.
+- No ignored TypeScript build errors.
+- Lint/build success.
+- Useful README.
+- Setup instructions.
+- Environment-variable documentation without secret values.
+- No dead dependencies.
+- No giant abandoned commented blocks.
+- No unnecessary frameworks/libraries.
+- No credentials committed to source control.
+- Meaningful component naming.
+- Maintainable CSS/design tokens.
+- Progressive enhancement.
+
+Test:
+
+FUNCTIONAL:
+Navigation, links, forms, case studies, errors, success states.
+
+RESPONSIVE:
+Phone, tablet, laptop, desktop, wide desktop.
+
+INPUT:
+Mouse, touch, keyboard.
+
+ACCESSIBILITY:
+Automated checks plus manual keyboard and sensible screen-reader review.
+
+PERFORMANCE:
+Production build under realistic conditions.
+
+BROWSERS:
+Modern Chrome, Safari, Firefox, Edge, with particular attention to iOS Safari.
+
+MEDIA:
+Hero and case-study crops on real viewport sizes.
+
+======================================================================
+34. SUCCESS CRITERIA
+======================================================================
+
+Within moments, a visitor should understand:
+
+This is Emilio Sierra.
+He operates a creative technology studio.
+He is based in Miami.
+He offers Web + App Design & Development.
+He offers Graphic Design.
+He offers Video Production.
+His presentation is sophisticated.
+There is a real person behind the studio.
+His work can be explored.
+He can be contacted easily.
+
+After deeper exploration, the visitor should understand:
+
+Emilio is interested in solving problems, not simply decorating them.
+His creative disciplines overlap.
+He has genuine hands-on professional experience.
+He wants to create increasingly ambitious things.
+He is interested in software that can improve everyday experiences.
+His long-term direction is invention.
+He is someone a client can bring an idea or problem to.
+
+======================================================================
+35. CURRENT PROJECT STATUS
+======================================================================
+
+APPROVED / STRONGLY ESTABLISHED:
+
+[X] Brand positioning.
+[X] First-person voice.
+[X] Three service pillars.
+[X] Neo Miami creative direction.
+[X] Deep cobalt color direction.
+[X] Cormorant Garamond + Verdana typography system.
+[X] 12/8/4 editorial grid direction.
+[X] Architectural shape language.
+[X] Five-section homepage story.
+[X] Day-to-night environmental progression.
+[X] Navigation v1.0.
+[X] Hero structure.
+[X] Selected Work continuous-showcase concept.
+[X] Prop case-study foundation.
+[X] Broadcast case-study foundation.
+[X] Services structure.
+[X] About story foundation.
+[X] Project-inquiry workflow.
+[X] Cinematic Editorial × Reactive Technology motion direction.
+[X] Accessibility philosophy.
+[X] Performance philosophy.
+[X] Next.js / TypeScript / modern CSS technical direction.
+[X] Vercel deployment direction.
+
+STILL REQUIRES OWNER CONTENT / DECISIONS:
+
+[ ] High-visibility copy polish.
+[ ] Case-study assets/details/permissions.
+[ ] Final service scope/copy.
+[ ] About portrait.
+[ ] Inquiry recipient email.
+[ ] Transactional email provider.
+[ ] Analytics decision.
+[ ] Social links.
+[ ] Legal/privacy details based on actual implementation.
+
+======================================================================
+36. IMPORTANT — CURRENT HANDOFF STATUS
+======================================================================
+
+This document is the PRE-FINAL MASTER PROMPT.
+
+Do not allow an AI coding agent to fabricate missing owner content.
+
+A coding agent may begin scaffolding/design-system/prototyping work using
+explicit placeholders, but production content should not be invented.
+
+Before the final Codex build prompt is issued:
+
+1. Resolve the most important EMILIO ACTION REQUIRED items.
+2. Replace or approve the major [WORKING COPY].
+3. Supply production media/assets where available.
+4. Choose the email delivery approach.
+5. Verify rights/permissions for portfolio media.
+6. Perform a final content and design-system review.
+7. Convert this specification into a final implementation prompt with
+   explicit acceptance criteria and build phases.
+
+The objective is not merely to create an attractive portfolio.
+
+The objective is to create a digital identity that can grow with Emilio
+Sierra from creative technologist toward inventor.
+
+END OF PRE-FINAL MASTER PROMPT v0.8

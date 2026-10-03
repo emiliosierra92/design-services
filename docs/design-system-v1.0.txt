@@ -1,0 +1,307 @@
+DESIGN SYSTEM v1.0
+EmilioSierra.com — Creative Technology Studio
+Design thesis
+Near-future Miami expressed through editorial sophistication, modern technology and human personality.
+
+Not sci-fi. Not retro Miami. Not a generic developer portfolio.
+The website should feel like Emilio's digital storefront in a Miami that is a few years ahead of today.
+01 / COLOR
+Deep Cobalt
+#1646D8
+Our primary brand color.
+Used for brand moments, interactive emphasis, environmental lighting, selected states and technological character.
+Cobalt Highlight
+#3F6FFF
+Supporting cobalt for highlights, illumination and situations where the primary cobalt needs additional separation.
+Ink
+#090A0D
+Our primary near-black.
+Night environments, typography and deep contrast.
+Night Surface
+#111318
+Secondary dark surface.
+White
+#FFFFFF
+Clarity, daylight and high-contrast typography.
+Soft White
+#F4F5F7
+Large light surfaces where pure white would feel harsh.
+Signal Red
+#E32636
+Rare. Intentional. Functional.
+Think:
+● LIVE
+● RECORDING
+● ACTIVE
+Potential tiny status indicators.
+The broadcasting case study is its natural showcase.
+Rule: If we're asking whether an element should be red simply because it would "look cool," the answer is probably no.
+02 / TYPOGRAPHY
+Cormorant Garamond
+Display / editorial voice
+Used for:
+I CREATE
+WHAT'S NEXT.
+and:
+IDEAS,
+MADE REAL.
+and other major narrative statements.
+It gives the website some humanity and sophistication against all the technological language.
+Verdana
+Information / interface voice
+Used for body copy, navigation, forms, buttons, metadata, case-study descriptions and technical information.
+Verdana also gives us something I really like conceptually: it's deeply connected to the history of screen typography while still being extremely readable.
+Then we exploit its more technical personality through microtype:
+PROJECT / 001
+MIAMI / FL
+WEB + APP
+● LIVE
+SELECTED WORK / 02
+Small. Precise. Controlled tracking.
+No third font.
+Two families are enough.
+03 / GRID
+Desktop:
+12 COLUMNS
+Tablet:
+8 COLUMNS
+Mobile:
+4 COLUMNS
+But the grid is an alignment system, not a prison.
+Large photography and typography may intentionally break it.
+Body copy generally stays narrow enough for comfortable reading.
+The site should alternate between:
+CONTROL
+and
+RELEASE
+Precise information followed by large expressive moments.
+04 / SHAPE LANGUAGE
+Architectural.
+Mostly rectangular.
+Minimal rounding.
+Working radii:
+04px / SMALL
+08px / MEDIUM
+16px / LARGE
+Large photography can have 0px radius.
+Pills are reserved for controls where their shape actually serves a purpose.
+No portfolio made out of twenty floating rounded cards.
+No gratuitous glass panels.
+No enormous shadows.
+Depth comes from composition, photography, light and movement.
+05 / THE ENVIRONMENT
+This remains one of the strongest ideas in the entire design.
+The website progresses through a Miami day.
+STORE­FRONT
+10:00 AM / DAYLIGHT
+Bright.
+White/soft-white.
+Cobalt.
+Photography.
+↓
+SELECTED WORK
+03:00 PM / AFTERNOON
+Still bright, but deeper.
+The work begins dominating the environment.
+↓
+SERVICES
+06:30 PM / GOLDEN HOUR
+Warmth enters primarily through imagery and environmental treatment—not an orange website theme.
+↓
+ABOUT
+08:00 PM / BLUE HOUR
+Deep cobalt.
+More intimate.
+Quieter.
+↓
+CONTACT
+11:00 PM / NIGHT
+Near-black.
+White typography.
+Cobalt illumination.
+Tiny red signals where appropriate.
+And finally:
+BACK TO DAYLIGHT ↑
+The journey loops.
+These times are design-language references, not literal clocks that need to appear to users.
+06 / PHOTOGRAPHY
+Photography is not decoration.
+It establishes Emilio as a real person behind the technology.
+Hero portrait:
+Large.
+Environmental.
+Integrated into the composition.
+About portrait:
+More personal.
+More direct.
+More reflective.
+Project imagery:
+Allowed to become huge.
+If an artifact deserves the screen, give it the screen.
+Don't squeeze important work into thumbnails because some template expects a card.
+07 / MOTION
+Our rule is officially locked:
+LARGE THINGS MOVE SLOWLY.
+SMALL THINGS RESPOND QUICKLY.
+
+Four motion families:
+FAST / ~160MS
+Microinteraction.
+NORMAL / ~260MS
+Interface response.
+SLOW / ~500MS
+Editorial transitions.
+CINEMATIC / ~800MS
+Major environmental moments.
+These are starting values rather than requirements to animate everything.
+Motion communicates:
+Hierarchy.
+Continuity.
+State.
+Cause and effect.
+Never:
+"Look how many animations I know."
+And reduced-motion users get the same design quality, not a stripped-down second-class version.
+08 / NAVIGATION
+Desktop identity:
+EMILIO SIERRA
+CREATIVE TECHNOLOGY STUDIO
+WORK    SERVICES    ABOUT    START A PROJECT ↗
+Emilio's name returns home.
+No unnecessary HOME.
+Navigation begins integrated into the storefront and becomes compact/persistent after leaving it.
+It changes intelligently between light and dark environments.
+Mobile:
+EMILIO SIERRA　　　　　　　　　MENU
+Opening into our full-screen editorial navigation.
+Navigation must always answer:
+Where am I?
+Where can I go?
+How do I contact Emilio?
+09 / HOMEPAGE COMPOSITION
+Our finalized narrative:
+01 / STOREFRONT
+I CREATE
+WHAT'S NEXT.
+I use design and technology to turn ideas and everyday problems into useful experiences—from websites and applications to graphic design and video.
+
+EXPLORE MY WORK →
+↓
+02 / SELECTED WORK
+IDEAS,
+MADE REAL.
+PROJECT 001
+EmilioSierra.com
+WEB + APP DESIGN & DEVELOPMENT
+PROJECT 002
+Vintage Packaging Recreated for the Stage
+GRAPHIC DESIGN
+PROJECT 003
+Behind the Live Broadcast
+VIDEO PRODUCTION
+↓
+03 / WHAT I DO
+WHAT CAN I
+CREATE FOR YOU?
+01 / DIGITAL
+WEB + APP DESIGN & DEVELOPMENT
+02 / VISUAL
+GRAPHIC DESIGN
+03 / MOTION
+VIDEO PRODUCTION
+↓
+04 / PROFILE
+CURIOSITY
+MADE ME
+A CREATOR.
+Emilio's story.
+His history.
+His philosophy.
+His direction.
+↓
+05 / START SOMETHING
+LET'S MAKE
+SOMETHING.
+START A PROJECT →
+↓
+BACK TO DAYLIGHT ↑
+That's the website.
+10 / THE THREE PROJECT LANGUAGES
+This is something I'd formally add to v1.0.
+Each case study inherits the global design system but gets one unique visual vocabulary.
+EmilioSierra.com
+GRID / INTERFACE / CODE / MOTION
+Structured.
+Interactive.
+Cobalt.
+Precise.
+Theatrical Prop
+MEASURE / RECONSTRUCT / PRINT / ASSEMBLE
+Photoshop.
+Rulers.
+Packaging geometry.
+Texture.
+Physical transformation.
+Broadcasting
+CAM 01 / CAM 02 / AUDIO / SCORE / PROGRAM
+And our red finally arrives:
+● LIVE
+Screens.
+Motion.
+Broadcast graphics.
+Your surviving footage.
+Each project feels different without becoming a different website.
+11 / INTERACTION PRINCIPLE
+We're keeping one sentence at the top of Codex's design instructions:
+FAMILIAR UX. UNFAMILIAR PRESENTATION.
+
+That's our guardrail.
+Navigation remains navigation.
+Buttons behave like buttons.
+Forms behave like forms.
+Scrolling behaves like scrolling.
+But their presentation can be memorable.
+No scroll hijacking.
+No mystery navigation.
+No fake loading screen.
+No forced "ENTER EXPERIENCE."
+No cursor that makes using the website worse.
+No animation hiding information from somebody trying to get to it.
+12 / ACCESSIBILITY IS PART OF THE AESTHETIC
+WCAG 2.2 AA remains our baseline.
+But I don't want Codex thinking:
+"Build the cool version and then make it accessible."
+
+It's:
+Build the cool version accessibly.
+
+Focus states become part of our cobalt interaction language.
+Reduced motion becomes part of our motion system.
+Readable typography informs our composition.
+Contrast informs the environmental transitions.
+Keyboard behavior informs navigation.
+Semantic HTML informs structure.
+Accessibility isn't an appendix to Neo Miami.
+It's part of Neo Miami.
+13 / THE EMOTIONAL TARGET
+This is the final test I'll give Codex.
+At the storefront:
+"Okay. This is Emilio."
+
+At Selected Work:
+"Oh, he actually makes different kinds of things."
+
+At Services:
+"I could hire him to make something for me."
+
+At About:
+"I understand how this guy thinks."
+
+At Contact:
+"I have an idea. I'm going to tell him about it."
+
+And sometime during the experience:
+"That was cool."
+
+Not because we covered the screen in effects.
+Because the whole thing felt considered.
