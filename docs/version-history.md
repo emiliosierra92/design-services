@@ -72,3 +72,9 @@ October 2, 2026: removed the work-section padding overrides, restoring the origi
 October 2, 2026: replaced the inquiry preview with a server-side Resend connection addressed to emiliomsierra@outlook.com. Added shared validation, pending/success/error states, accessible field errors, English/Spanish messages, visitor reply-to, idempotent retry, honeypot, origin/body checks and per-process limits. Delivery remains disabled until the API key and verified sender are configured. No real emails have been sent during automated testing. Setup is documented in contact-form-setup.md; live inbox verification remains pending.
 
 Contact integration validation: six server tests and four browser tests passed with mocked email delivery, including validation/focus, pending and success states, duplicate prevention, retry identity, Spanish messages and accessibility of validation errors. Production build, TypeScript and ESLint passed. Live Outlook delivery remains unverified until credentials are configured.
+
+## Deployment dependency repair
+
+October 4, 2026: updated `eslint-config-next` from the archived Next.js 14 configuration to `^16.3.7`, matching the active Next.js version and supporting ESLint 9. Regenerated `package-lock.json` to resolve Vercel's dependency-installation conflict without bypassing peer dependency checks. Site design and inquiry behavior are unchanged.
+
+Validation: clean `npm ci`, ESLint and the production build (including TypeScript checks) passed. No deployment performed.
