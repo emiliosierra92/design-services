@@ -16,6 +16,14 @@ The form is wired to send inquiries to **emiliomsierra@outlook.com** through Res
 
 The recipient is fixed in `src/lib/inquiry-email.ts`; a visitor cannot change the recipient or sender. The visitor’s address is used as `reply_to`, following [Resend’s sending API](https://resend.com/docs/api-reference/emails/send-email).
 
+## If the site is already on Vercel
+
+Adding `RESEND_API_KEY` alone does not enable the form. In the project's Vercel environment settings, also add `INQUIRY_FROM_EMAIL` using an address on your Resend-verified domain. Apply both variables to the Production environment, then redeploy so the new deployment receives them. The Outlook address is the recipient, not the sender; do not use `emiliomsierra@outlook.com` as `INQUIRY_FROM_EMAIL`.
+
+`INQUIRY_SITE_ORIGIN` is optional: when unset, the endpoint checks submissions against the request's own origin. If you set it, use the exact public origin visitors use, with no path or trailing slash. A different origin will be rejected.
+
+After redeployment, open `/start-a-project`. The Send inquiry button should be enabled. Submit a test inquiry and check both the Resend email logs and your Outlook inbox/junk folder. A success message confirms provider acceptance; inbox arrival must be verified separately.
+
 ## Behavior
 
 - Name, email, service selection and project message are validated in both the browser and server. Optional company and timeline are included in the email.

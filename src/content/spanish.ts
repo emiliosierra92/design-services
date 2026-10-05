@@ -44,7 +44,7 @@ export const spanish: Record<string, string> = {
   'Creative Technology Studio': 'Estudio de tecnología creativa',
   'Creative Technology Studio · Miami, Florida': 'Estudio de tecnología creativa · Miami, Florida',
   'Menu': 'Menú', 'Close ×': 'Cerrar ×', 'Work': 'Trabajo', 'Services': 'Servicios', 'About': 'Sobre mí',
-  'Design prototype · Content pending approval': 'Prototipo de diseño · Contenido pendiente de aprobación',
+  'Designed & developed by Emilio Sierra · Miami, FL': 'Diseñado y desarrollado por Emilio Sierra · Miami, FL',
   'Inquiry preview': 'Vista previa de la consulta',
   'Email delivery is not connected yet. This form is for reviewing the inquiry experience; nothing will be sent or saved.': 'El envío de correo aún no está conectado. Este formulario permite revisar la experiencia de consulta; no se enviará ni guardará nada.',
   'Your name': 'Tu nombre', '(required)': '(obligatorio)', 'Email address': 'Correo electrónico',
