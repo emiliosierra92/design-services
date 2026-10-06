@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://emiliosierra.com'),
   title: { default: 'Emilio Sierra — Creative Technology Studio', template: '%s — Emilio Sierra' },
   description: 'Independent creative technology studio in Miami. Web and app design and development, graphic design, and video production.',
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en" className={display.variable}><body><LanguageProvider><a className="skip-link" href="#main"><Text text="Skip to content" /></a><Navigation />{children}<Footer /></LanguageProvider></body></html>;

@@ -78,3 +78,15 @@ Contact integration validation: six server tests and four browser tests passed w
 October 4, 2026: updated `eslint-config-next` from the archived Next.js 14 configuration to `^16.3.7`, matching the active Next.js version and supporting ESLint 9. Regenerated `package-lock.json` to resolve Vercel's dependency-installation conflict without bypassing peer dependency checks. Site design and inquiry behavior are unchanged.
 
 Validation: clean `npm ci`, ESLint and the production build (including TypeScript checks) passed. No deployment performed.
+
+## Production SEO and social-sharing metadata
+
+October 6, 2026: configured the requested homepage SEO title and description, canonical `https://emiliosierra.com`, Open Graph website identity, and Twitter/X large-image card using the Next.js App Router Metadata API. Kept the existing production metadata base and title template for other routes, with an absolute homepage title to avoid an appended suffix. Homepage metadata is scoped to `src/app/page.tsx`; existing case-study and inquiry titles/descriptions are unchanged and do not inherit the homepage canonical or Open Graph URL.
+
+Moved the existing homepage client component unchanged into `src/app/home.tsx` so the server page can export metadata. Added the supplied artwork unchanged at `public/images/emilio-sierra-social.png` (1734 × 907 PNG), referenced by absolute production URL with the approved alt text for both social cards. The image and homepage client component were verified byte-for-byte against their originals. No visible copy, styling, layout, navigation, animations, project content or inquiry behavior changed. Historical prompts remain unchanged.
+
+Removed the prototype's site-wide `noindex, nofollow` metadata and robots.txt crawl prohibition, both of which were still present on the live site and prevented production indexing.
+
+Validation: production build completed without errors or warnings; TypeScript and ESLint passed. Two new metadata browser tests passed, covering unique/exact homepage tags, social metadata, original image delivery from the local production server, crawl permission and preservation of page-specific metadata. Existing accessibility, responsive-layout, mobile-navigation, disabled-inquiry and language tests passed; the language-navigation test timed out once during the combined run and passed on an isolated rerun. The pre-rendered homepage HTML also contains exactly one title, description and canonical, with social metadata available without JavaScript.
+
+Production follow-up: read-only HTTP checks found that `https://emiliosierra.com` currently returns a Vercel 308 redirect to `https://www.emiliosierra.com/`. The hosting domain preference must be aligned with the requested non-www canonical; no hosting settings were changed. The new social image currently returns 404 on the existing deployment. Local production serving is verified, but live metadata/image verification remains pending deployment. No deployment performed.
