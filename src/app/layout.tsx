@@ -9,7 +9,7 @@ const display = localFont({ src: [
   { path: '../../node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2', weight: '500' },
 ], variable: '--font-display', display: 'swap' });
 export const metadata: Metadata = {
-  metadataBase: new URL('https://emiliosierra.com'),
+  metadataBase: new URL('https://www.emiliosierra.com'),
   title: { default: 'Emilio Sierra — Creative Technology Studio', template: '%s — Emilio Sierra' },
   description: 'Independent creative technology studio in Miami. Web and app design and development, graphic design, and video production.',
   robots: { index: true, follow: true },

@@ -11,10 +11,10 @@ test('homepage emits unique SEO and social metadata and serves the original imag
     'meta[name="robots"]': 'index, follow',
     'meta[property="og:title"]': 'Emilio Sierra — Creative Technology Studio',
     'meta[property="og:description"]': 'I use design and technology to turn ideas and everyday problems into useful experiences. Explore my work in web development, graphic design and video production.',
-    'meta[property="og:url"]': 'https://emiliosierra.com',
+    'meta[property="og:url"]': 'https://www.emiliosierra.com',
     'meta[property="og:site_name"]': 'Emilio Sierra',
     'meta[property="og:type"]': 'website',
-    'meta[property="og:image"]': 'https://emiliosierra.com/images/emilio-sierra-social.png',
+    'meta[property="og:image"]': 'https://www.emiliosierra.com/images/emilio-sierra-social.png',
     'meta[property="og:image:width"]': '1734',
     'meta[property="og:image:height"]': '907',
     'meta[property="og:image:type"]': 'image/png',
@@ -22,7 +22,7 @@ test('homepage emits unique SEO and social metadata and serves the original imag
     'meta[name="twitter:card"]': 'summary_large_image',
     'meta[name="twitter:title"]': 'Emilio Sierra — Creative Technology Studio',
     'meta[name="twitter:description"]': 'I use design and technology to turn ideas and everyday problems into useful experiences. Explore my work in web development, graphic design and video production.',
-    'meta[name="twitter:image"]': 'https://emiliosierra.com/images/emilio-sierra-social.png',
+    'meta[name="twitter:image"]': 'https://www.emiliosierra.com/images/emilio-sierra-social.png',
     'meta[name="twitter:image:alt"]': 'Emilio Sierra — Creative Technology Studio in Miami',
   };
   for (const [selector, content] of Object.entries(tags)) {
@@ -30,7 +30,8 @@ test('homepage emits unique SEO and social metadata and serves the original imag
     await expect(page.locator(selector)).toHaveAttribute('content', content);
   }
   await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://emiliosierra.com');
+  await expect(page.locator('head link[rel="canonical"]')).toHaveCount(1);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.emiliosierra.com/');
 
   const image = await request.get('/images/emilio-sierra-social.png');
   expect(image.status()).toBe(200);
@@ -40,6 +41,25 @@ test('homepage emits unique SEO and social metadata and serves the original imag
   expect(robots.status()).toBe(200);
   expect(await robots.text()).toContain('Allow: /');
   expect(await robots.text()).not.toContain('Disallow: /');
+  expect(await robots.text()).toContain('Sitemap: https://www.emiliosierra.com/sitemap.xml');
+
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.status()).toBe(200);
+  expect(sitemap.headers()['content-type']).toContain('application/xml');
+  const urls = await page.evaluate(xml => {
+    const document = new DOMParser().parseFromString(xml, 'application/xml');
+    if (document.querySelector('parsererror')) throw new Error('Invalid sitemap XML');
+    if (document.documentElement.namespaceURI !== 'http://www.sitemaps.org/schemas/sitemap/0.9') {
+      throw new Error('Invalid sitemap namespace');
+    }
+    return [...document.querySelectorAll('loc')].map(node => node.textContent);
+  }, await sitemap.text());
+  expect(urls).toEqual([
+    'https://www.emiliosierra.com/',
+    'https://www.emiliosierra.com/start-a-project',
+    'https://www.emiliosierra.com/work/theatrical-prop-packaging',
+    'https://www.emiliosierra.com/work/live-sports-broadcasting',
+  ]);
 });
 
 test('homepage metadata does not override existing page-specific metadata', async ({ page }) => {
