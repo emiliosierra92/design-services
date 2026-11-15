@@ -3,7 +3,7 @@ import { Text, useLanguage } from '@/components/language-provider';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-const items = [['Work', '/#work'], ['Services', '/#services'], ['About', '/#about']];
+const items = [["Lucky Bird's Feather Fundraiser!", '/luckybird/'], ['Blog', '/blog'], ['Services', '/#services'], ['About', '/#about']];
 export function Navigation() {
   const { t } = useLanguage();
   const dialog = useRef<HTMLDialogElement>(null);
@@ -34,7 +34,7 @@ export function Navigation() {
   return <>
     <header className={`site-header ${compact ? 'compact' : ''} ${night ? 'night-nav' : ''}`}>
       <Link className="brand" href="/" aria-label={t("Emilio Sierra home")}>EMILIO SIERRA<span><Text text="CREATIVE TECHNOLOGY STUDIO" /></span></Link>
-      <nav className="desktop-nav" aria-label={t("Main navigation")}>{items.map(([label, href]) => <Link aria-current={active === href.slice(2) ? 'location' : undefined} href={href} key={href}>{t(label)}</Link>)}<Link className="inquiry-link" href="/start-a-project"><Text text="Start a project" /> <span>↗</span></Link></nav>
+      <nav className="desktop-nav" aria-label={t("Main navigation")}>{items.map(([label, href]) => <Link className={href === '/luckybird/' ? 'lucky-nav-link' : undefined} aria-current={href === '/luckybird/' ? (pathname === '/luckybird' ? 'page' : undefined) : href === '/blog' ? (pathname === '/blog' ? 'page' : pathname.startsWith('/blog/') ? 'location' : undefined) : (active === href.slice(2) ? 'location' : undefined)} href={href} key={href}>{t(label)}</Link>)}<Link className="inquiry-link" href="/start-a-project"><Text text="Start a project" /> <span>↗</span></Link></nav>
       <button ref={trigger} className="menu-trigger" aria-expanded={open} aria-controls="mobile-menu" onClick={() => { dialog.current?.showModal(); setOpen(true); }}><Text text="Menu" /></button>
     </header>
     <dialog ref={dialog} id="mobile-menu" className="mobile-menu" onCancel={close} onClose={() => { setOpen(false); trigger.current?.focus(); }} aria-label={t("Site navigation")} onKeyDown={event => {
@@ -47,7 +47,7 @@ export function Navigation() {
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }}>
       <div className="menu-top"><span>EMILIO SIERRA</span><button onClick={close} autoFocus><Text text="Close ×" /></button></div>
-      <nav aria-label={t("Mobile navigation")}>{[...items, ['Start a project ↗', '/start-a-project']].map(([label, href]) => <Link href={href} key={href} onClick={close}>{t(label)}</Link>)}</nav>
+      <nav aria-label={t("Mobile navigation")}>{[...items, ['Start a project ↗', '/start-a-project']].map(([label, href]) => <Link className={href === '/luckybird/' ? 'lucky-mobile-link' : undefined} href={href} key={href} onClick={close}>{t(label)}</Link>)}</nav>
       <p className="eyebrow"><Text text="Creative Technology Studio" /><br />Miami / FL</p>
     </dialog>
   </>;

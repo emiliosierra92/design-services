@@ -1,4 +1,10 @@
 export const spanish: Record<string, string> = {
+  'Blog': 'Blog',
+  '← All stories': '← Todas las historias',
+  'Stories from the studio': 'Historias del estudio',
+  'The ideas, projects, and experiences behind my work.': 'Las ideas, los proyectos y las experiencias detrás de mi trabajo.',
+  'Read the story': 'Lee la historia',
+  'Project plans · The dedicated Lucky Bird page, store, and community features described below are planned.': 'Planes del proyecto · La página de Lucky Bird, la tienda y las funciones de comunidad descritas a continuación están previstas.',
   'Send inquiry': 'Enviar consulta', 'Sending…': 'Enviando…', 'Inquiry submitted': 'Consulta enviada',
   'Your details will be used to respond to your inquiry.': 'Tus datos se usarán para responder a tu consulta.',
   'Your inquiry has been submitted. Thank you—I’ll be in touch.': 'Tu consulta se ha enviado. Gracias, me pondré en contacto contigo.',

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { projects } from '@/content/studio';
+import { workStories, workStoryPath } from '@/content/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const origin = 'https://www.emiliosierra.com';
@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${origin}/` },
     { url: `${origin}/start-a-project` },
-    ...projects.map(({ slug }) => ({ url: `${origin}/work/${slug}` })),
+    { url: `${origin}/blog` },
+    { url: `${origin}/luckybird` },
+    ...workStories.map(({ slug }) => ({ url: `${origin}${workStoryPath(slug)}` })),
   ];
 }

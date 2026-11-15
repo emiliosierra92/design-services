@@ -8,23 +8,29 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:luckybird": "node --conditions=react-server --test tests/luckybird/*.node.mjs",
+    "luckybird": "node --conditions=react-server scripts/luckybird.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
-    "next": "^16.3.7",
+    "@neondatabase/serverless": "^1.2.1",
+    "next": "^16.4.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "resend": "^6.32.0"
+    "resend": "^6.32.0",
+    "server-only": "^0.0.1",
+    "stripe": "^23.1.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@electric-sql/pglite": "^0.5.16",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.7",
+    "eslint-config-next": "^16.4.6",
     "typescript": "^6.0.3"
   }
 }

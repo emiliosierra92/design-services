@@ -57,16 +57,19 @@ test('homepage emits unique SEO and social metadata and serves the original imag
   expect(urls).toEqual([
     'https://www.emiliosierra.com/',
     'https://www.emiliosierra.com/start-a-project',
-    'https://www.emiliosierra.com/work/theatrical-prop-packaging',
-    'https://www.emiliosierra.com/work/live-sports-broadcasting',
+    'https://www.emiliosierra.com/blog',
+    'https://www.emiliosierra.com/luckybird',
+    'https://www.emiliosierra.com/blog/work/theatrical-prop-packaging',
+    'https://www.emiliosierra.com/blog/work/live-sports-broadcasting',
+    'https://www.emiliosierra.com/blog/luckybird/luckysfeatherfundraiser',
   ]);
 });
 
 test('homepage metadata does not override existing page-specific metadata', async ({ page }) => {
   const routes = [
     ['/start-a-project', 'Start a project — Emilio Sierra', 'Bring your idea to Emilio Sierra’s independent creative technology studio.'],
-    ['/work/theatrical-prop-packaging', 'Theatrical prop packaging — Emilio Sierra', 'Recreating vintage packaging for a life on stage.'],
-    ['/work/live-sports-broadcasting', 'South Florida live sports broadcasting — Emilio Sierra', 'Behind the scenes of live high-school baseball in South Florida.'],
+    ['/blog/work/theatrical-prop-packaging', 'Theatrical prop packaging — Emilio Sierra', 'Recreating vintage packaging for a life on stage.'],
+    ['/blog/work/live-sports-broadcasting', 'South Florida live sports broadcasting — Emilio Sierra', 'Behind the scenes of live high-school baseball in South Florida.'],
   ];
   for (const [path, title, description] of routes) {
     await page.goto(path);
@@ -74,7 +77,13 @@ test('homepage metadata does not override existing page-specific metadata', asyn
     await expect(page).toHaveTitle(title);
     await expect(page.locator('meta[name="description"]')).toHaveCount(1);
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', description);
-    await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
-    await expect(page.locator('meta[property="og:url"]')).toHaveCount(0);
+    if (path.startsWith('/blog/')) {
+      await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.emiliosierra.com${path}`);
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', `https://www.emiliosierra.com${path}`);
+    } else {
+      await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+      await expect(page.locator('meta[property="og:url"]')).toHaveCount(0);
+    }
   }
 });

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test('all routes render with no critical accessibility violations', async ({ page }) => {
-  for (const path of ['/', '/work/theatrical-prop-packaging', '/work/live-sports-broadcasting', '/start-a-project']) {
+  for (const path of ['/', '/blog/work/theatrical-prop-packaging', '/blog/work/live-sports-broadcasting', '/start-a-project']) {
     const response = await page.goto(path);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toBeVisible();

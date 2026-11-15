@@ -27,7 +27,7 @@ test('Spanish layouts fit mobile and desktop and remain accessible', async ({ pa
   await page.getByRole('button', { name: 'Español', exact: true }).click();
   for (const width of [360, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const path of ['/', '/work/live-sports-broadcasting', '/start-a-project']) {
+    for (const path of ['/', '/blog/work/live-sports-broadcasting', '/start-a-project']) {
       await page.goto(path);
       await expect(page.locator('html')).toHaveAttribute('lang', 'es');
       const overflow = await page.evaluate(() => [...document.querySelectorAll('main *, footer *')].filter(element => element.getBoundingClientRect().right > innerWidth + 1).map(element => ({ tag: element.tagName, class: element.className, text: element.textContent?.slice(0, 60) })));

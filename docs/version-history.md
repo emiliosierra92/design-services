@@ -142,3 +142,83 @@ October 20, 2026: at the owner's request, restored the active application and pa
 The removed Store work is preserved in [the source snapshot](versions/source-store-v1-before-rollback-2026-10-20.tar.gz), with [its foundation report](versions/store-v1-foundation-2026-10-20.md) archived separately. Previous history and historical design prompts remain preserved. No Vercel, Stripe or Neon settings/resources were changed, and no deployment was performed.
 
 Restoration validation: clean `npm ci`, ESLint and the production build (including TypeScript) passed. The first build found stale generated development types for the removed webhook; clearing `.next` and rebuilding resolved it. All 14 enabled tests in the standard suite passed; four inquiry UI tests were skipped by their existing isolated-server requirement. The six inquiry server tests also passed independently, with mocked provider responses and no emails sent. The active source, assets, tests, package files, framework configuration and historical prompts were verified against commit `ed92582`; only archival documentation/history differs. Generated `next-env.d.ts` was restored to the target commit after building.
+
+## Blog introduced — work stories moved under /blog/work
+
+November 15, 2026: added `/blog` with clickable, accessible story cards using the current editorial typography, cobalt links and existing spacing/border vocabulary. Replaced Work with Blog in desktop, mobile and footer navigation. At the owner's clarification, the active site's **two** existing stories remain featured on the homepage: theatrical prop packaging and South Florida live sports broadcasting. Their copy, images, case-study styling and ordering are preserved. Homepage links and next-project links now use `/blog/work/<existing-slug>`; case studies link back to the blog. Permanent HTTP 308 redirects from `/work/:slug` preserve old inbound URLs and query parameters.
+
+Added the complete owner-supplied English story “Lucky Bird’s Feather Fund: A Small Idea With a Bigger Purpose” at `/blog/work/lucky-birds-feather-fund`, with its own blog card and Spanish translation. The article's contact invitation links to the existing inquiry page. An editorial notice identifies the dedicated Lucky Bird page, store and community features as planned. The article's reference to `emiliosierra.com/luckybird` is retained as supplied text; this update does not create that landing page, add its homepage link, enable checkout or imply those features are implemented.
+
+Created a work-story registry with a reusable editorial story renderer and a separate explicit homepage featured-slug list. Publishing a project or editorial work story registers it with the blog, static routes, metadata and sitemap, without featuring it automatically on the homepage. The only category is `work`; other categories require owner agreement. Publishing instructions are recorded in README and AGENTS.md. New blog routes have their own canonical, description, Open Graph URL/type and Twitter metadata. The sitemap includes `/blog` and all three current blog stories, with the old `/work` URLs removed. Homepage SEO, contact delivery behavior, historical prompts, media assets and package dependencies are unchanged.
+
+Validation: production build, ESLint and TypeScript passed. All 22 tests passed across the standard suite (18 passed; four inquiry UI tests intentionally skipped), the isolated mocked inquiry UI run (four passed), and a final rerun of the four blog checks after the contact renderer/navigation refinement. Tests cover permanent redirects and query preservation, old story copy, complete Lucky article, homepage feature isolation, sitemap/canonical/social metadata, category/missing-story 404s, English/Spanish persistence, mobile navigation, viewport overflow and automated accessibility. Desktop/mobile previews were visually reviewed; no real inquiry emails were sent. No deployment, database configuration or payment operation was performed. Generated `next-env.d.ts` was restored after building.
+
+Recovery and visual records:
+
+- [Source before the blog update](versions/source-before-blog.tar.gz)
+- [Blog desktop](versions/blog-desktop.png)
+- [Blog mobile](versions/blog-mobile.png)
+- [Lucky story mobile](versions/lucky-story-mobile.png)
+
+## Lucky Bird story — custom URL
+
+November 15, 2026: at the owner's request, moved Lucky's blog story to the exact URL `/blog/luckbird/luckysfeatherfundraiser`. The story retains its existing internal identifier, work category, complete content and visual style. Its blog card, canonical/Open Graph URL and sitemap entry use the new path. The former `/blog/work/lucky-birds-feather-fund` and `/work/lucky-birds-feather-fund` paths permanently redirect there in one HTTP 308 response, preserving query parameters. The original two homepage features and other work-story paths are unchanged. This custom URL is recorded in README and AGENTS.md; it does not create a new editorial category.
+
+Validation: production build (including TypeScript), lint and all six focused blog/metadata tests passed. These checks include the exact new path, old-path redirects, article content, canonical/social metadata, sitemap URLs, responsive layouts, Spanish persistence and accessibility. No deployment performed.
+
+## Lucky Bird — dedicated page and first checkout implementation
+
+November 15, 2026: built `/luckybird` with the owner's requested first navigation link “Lucky Bird's Feather Fundraiser!”, a prominent homepage “Lucky Bird’s Feather fund” feature, and a warm cream/yellow/cobalt composition using the active site's typography. The original two homepage work stories and blog routes remain intact. Added English/Spanish content, care resources, editable photo/update collections, explicit photo placeholders, product expectations, and a friendly community section. Lucky's existing blog story now links to the dedicated page. Canonical/social metadata and sitemap include the new route. No real photos, reviews, totals, dates or bird stories were fabricated.
+
+Reused the owner-supplied live product `prod_VdLxh7mOJDzZB8` and one-time $10 price `price_1Uc5FBHvvMGc5UBGe7WOSRoS`; no product/price creation code exists. The owner approved live payments, the existing Florida tax configuration, 20 starting selections and free international shipping. Added server-controlled Stripe Checkout parameters with required customer shipping/billing addresses, zero-cost international shipping and automatic tax. Separate test/live configuration, API/pipeline mode checks and a database environment guard prevent silent environment switching. The Stripe pipeline schema is read-only. Application-owned SQL tables, explicit checksummed initialization, inventory reservations, persistent retry parameters, signed webhooks, payment/refund processing and operator reconciliation are implemented separately in `luckybird`. Initialization seeds 20 saleable surprise selections once, without resetting stock on reruns; this does not guarantee a particular feather count per selection.
+
+Payments are confirmed only from verified Stripe state persisted transactionally with inventory/event records. Return/cancel URLs cannot mark an order paid. Expiration/failure releases stock only after definitive Stripe state; ambiguous creation holds stock for reconciliation/manual review. Refunds do not automatically restock potentially shipped merchandise. Community submissions start private and require owner approval; consent, text/body limits, honeypot and durable abuse limits provide basic protection. Submitted photo links are never fetched or displayed automatically. Approved photos use reviewed local assets. Google Business eligibility is unconfirmed, so an on-site Neon community was implemented instead of inventing a Google review integration.
+
+No local Stripe/Neon credentials, Vercel project linkage or authenticated service browser access were available. The product's provider state, pipeline destination and actual tax/shipping/payment/refund outcomes remain unverified by the agent. No remote database/schema changes, real payments/refunds, emails or deployment occurred. Purchases and submissions truthfully remain unavailable until server settings/database readiness are present. See [setup and operations](luckybird-setup.md) for configuration, explicit schema commands, webhook events, moderation, photos and remaining integration checks.
+
+Validation: production build (Next.js 16.4.6), ESLint and TypeScript passed. All 48 distinct checks passed across the 22 isolated commerce tests and 26 browser tests, including the isolated four mocked inquiry UI checks. Two initial browser assertions expected trailing slashes; they were corrected to accept Next.js's normalized links and the focused ten blog/Lucky/metadata checks passed. Tests cover stock/payment/refund idempotency and rollback in disposable PostgreSQL, simulated provider failures, raw webhook signatures, mode/amount/tax validation, moderated community defaults, input limits, unavailable configuration, English/Spanish accessibility, redirects, metadata and representative viewport widths. These fixtures are not actual Stripe payments or multi-connection Neon contention tests. Final screenshots were visually reviewed. Build-generated `next-env.d.ts` was restored.
+
+Dependency maintenance: updated Next.js and matching ESLint configuration from 16.3.7 to 16.4.6 to resolve existing critical runtime advisories; updated compatible transitive dependencies. The runtime-only audit reports zero findings. Eight moderate development-tool findings remain; no forced major dependency downgrade was used. Historical prompts and contact delivery behavior are preserved.
+
+Recovery and visual records:
+
+- [Source before Lucky Bird](versions/source-before-luckybird.tar.gz)
+- [Lucky Bird desktop](versions/luckybird-desktop.png)
+- [Lucky Bird mobile](versions/luckybird-mobile.png)
+- [Homepage with Lucky feature, desktop](versions/luckybird-home-desktop.png)
+- [Homepage with Lucky feature, mobile](versions/luckybird-home-mobile.png)
+
+
+## Lucky Bird — blog URL spelling and homepage simplification
+
+November 15, 2026: at the owner's request, corrected the blog story URL to `/blog/luckybird/luckysfeatherfundraiser`. Internal links, canonical/social metadata, sitemap and existing legacy redirect destinations use the corrected path. Former `/blog/luckbird/:path*` URLs permanently redirect to `/blog/luckybird/:path*`, preserving existing links and query parameters. Removed the standalone Lucky Bird homepage section and its unused component/styles; the playful navigation button still leads to `/luckybird`. The original two homepage work stories remain featured. Historical records above are preserved. No deployment performed.
+
+Validation: production build (including TypeScript), ESLint and all ten focused blog/Lucky/metadata browser checks passed. Checks confirm the former URL redirects, corrected canonical/sitemap links, absence of the homepage feature, retained navigation button, responsive layouts and accessibility. No deployment performed.
+
+
+## Lucky Bird — first owner-supplied portrait
+
+November 15, 2026: added the owner's `luckybird.png` photo to Lucky's introduction, replacing the photo-debut placeholder. The shared photo collection also includes it in the album. Preserved the supplied image, added English/Spanish descriptive alt text and a short caption, and recorded its intrinsic dimensions for responsive rendering. No deployment performed.
+
+Validation: production build (including TypeScript), lint and all four Lucky Bird browser checks passed, covering responsive layout, English/Spanish accessibility and the displayed portrait. Desktop introduction preview visually reviewed.
+
+
+## Lucky Bird — product feather photo
+
+November 15, 2026: replaced the product illustration in “One surprise. Plenty of personality.” with the owner-supplied stock photo `luckybirdfeather.jpg`. Kept responsive proportions, the $10 price and existing product expectations, with English/Spanish alt text and an example-photo caption clarifying that selections vary. Original image preserved; no deployment performed.
+
+Validation: production build (including TypeScript), lint and whitespace checks passed.
+
+
+## Lucky Bird — balanced product photo sizing
+
+November 15, 2026: reduced the feather photo to a maximum width of 260px on desktop and 220px on mobile, preserving its square proportions. Capped the centered product card at 400px, removed its fixed minimum height, and adjusted price/spacing to keep the photo and captions balanced. Updated responsive image sizing. No deployment performed.
+
+Validation: production build (including TypeScript), whitespace checks and the existing responsive English/Spanish accessibility browser check passed. Desktop product layout visually reviewed.
+
+
+## Lucky Bird — patterned notes section
+
+November 15, 2026: added the owner-supplied `luckypattern.png` as a repeating background in “Notes from the perch.” A solid cream content panel preserves text contrast while the surrounding pattern adds personality. Pattern scale and panel padding adapt to mobile; the supplied image is preserved. No deployment performed.
+
+Validation: production build (including TypeScript), lint, whitespace checks and the existing responsive English/Spanish accessibility browser check passed. Desktop layout visually reviewed.

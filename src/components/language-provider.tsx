@@ -1,6 +1,8 @@
 'use client';
 import { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
 import { spanish } from '@/content/spanish';
+import { blogSpanish } from '@/content/blog-spanish';
+import { luckySpanish } from '@/content/luckybird-spanish';
 type Language = 'en' | 'es';
 const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void }>({ language: 'en', setLanguage: () => {} });
 let memoryLanguage: Language = 'en';
@@ -28,6 +30,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 }
 export function useLanguage() {
   const context = useContext(LanguageContext);
-  return { ...context, t: (text: string) => context.language === 'es' ? spanish[text] ?? text : text };
+  return { ...context, t: (text: string) => context.language === 'es' ? spanish[text] ?? blogSpanish[text] ?? luckySpanish[text] ?? text : text };
 }
 export function Text({ text }: { text: string }) { const { t } = useLanguage(); return <>{t(text)}</>; }
